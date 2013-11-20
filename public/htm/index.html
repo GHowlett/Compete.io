@@ -8,9 +8,7 @@
 
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
-
-		<script src="jquery/jquery.js"></script>
-		<script src="bootstrap/dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="magnific-popup/dist/magnific-popup.css">
 	</head>
 
 	<body>
@@ -39,18 +37,77 @@
 			</nav>
 		</header>
 
+		<div id="popup" class="zoom-anim-dialog white-popup-block mfp-hide">
+			<form class="form-horizontal">
+
+				<div class="form-group">
+				  <label class="control-label" for="name"></label>  
+				  <input id="name" name="name" type="text" placeholder="Tournament Name" class="form-control input-md">
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label" for="sport"></label>
+				  <div>
+				    <select id="sport" class="form-control">
+				      <option value="0">Sport</option>
+				      <option value="1">Wrestling</option>
+				      <option value="2">Soccer</option>
+				      <option value="3">Gaming</option>
+				    </select>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="team-count"></label>
+				  <div class="col-md-4">
+				    <div class="input-group">
+				      <span class="input-group-addon">     
+				          <input type="checkbox">     
+				      </span>
+				      <input id="team-count" name="team-count" class="form-control" type="number" placeholder="# of teams">
+				    </div>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label" for="security"></label>
+				  <div>
+				    <select id="security" class="form-control">
+				      <option value="1">Public</option>
+				      <option value="2">Password-Only</option>
+				      <option value="3">Secret-URL</option>
+				    </select>
+				  </div>
+			    </div>
+
+			</form>
+		</div>
+
 		<div id="main">
 			<h1>Competitionation</h1>
+
 			<div id="cup">
 				<img src="gfx/cup.svg">
 				<div class="carousel">
 				</div>
 			</div>
-			<button class="btn btn-inverse btn-large">Host</button>
-			<button class="btn btn-inverse btn-large">Find</button>
+
+			<button class="nested-btn" id="host">
+				<span>Host a Competition</span>
+				<a class="popup-btn" href="#popup"><button id="create">New Competition</button></a>
+				<button id="manage">Manage Existing</button>
+			</button>
+			<button id="join">Join a Competition</button>
+			<button id="watch">Watch a Competition</button>
 		</div>
 
 		<footer></footer>
+
+		<script src="jquery/jquery.js"></script>
+		<script src="bootstrap/dist/js/bootstrap.js"></script>
+		<script src="magnific-popup/dist/jquery.magnific-popup.js"></script>
+		
+		<script src="js/app.js"></script>
 
 	</body>
 </html>
