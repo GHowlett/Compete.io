@@ -8,7 +8,7 @@ $('.popup-btn').magnificPopup({
 
 	overflowY: 'auto',
 
-	closeBtnInside: true,
+	showCloseBtn: false,
 	preloader: false,
 	focus: focusEl,
 	
@@ -16,6 +16,7 @@ $('.popup-btn').magnificPopup({
 	removalDelay: 300,
 	mainClass: 'my-mfp-zoom-in',
 
+	/* stops auto-zoom-in for mobile phones */
 	callbacks: {
 		beforeOpen: function() {
 			if ($(window).width() < 700) this.st.focus = false;
