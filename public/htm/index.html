@@ -19,7 +19,7 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/"><img class="icon" src="gfx/white-cup.svg"></a>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#home-nav">
-				      <span class="sr-only">Toggle navigation</span>
+				      <span class="sr-only">Toggle Navigation</span>
 				      <span class="icon-bar"></span>
 				      <span class="icon-bar"></span>
 				      <span class="icon-bar"></span>
@@ -38,59 +38,35 @@
 			</nav>
 		</header>
 
-		<div id="popup" class="zoom-anim white-popup-block mfp-hide">
-			<form class="form-horizontal">
+		<script id="comp-form">
+		    <label for="name"></label>  
+		    <input id="name" name="name" type="text" placeholder="Tournament Name" class="form-control input-md">
+			  
+		    <label for="sport"></label>
+		    <select id="sport" name="sport" class="form-control">
+		      <option>Sport</option>
+		      <option>Wrestling</option>
+		      <option>Soccer</option>
+		      <option>Gaming</option>
+		    </select>
 
-			  <div class="form-group">
-			    <label class="control-label" for="name"></label>  
-			    <input id="name" name="name" type="text" placeholder="Tournament Name" class="form-control input-md">
-			  </div>
+		    <label for="team-count"></label>
+		    <span class="input-group-addon">     
+		      <input type="checkbox">
+		      <span> Teams</span>     
+		    </span>
+		    <input id="team-count" name="team-count" class="form-control" type="number" value="0">
+		    
+		    <label for="security"></label>
+		    <select id="security" name="security" class="form-control">
+		      <option>Public</option>
+		      <option>Password-Only</option>
+		      <option>Secret-URL</option>
+		    </select>
 
-			  <div class="form-group">
-			    <label class="control-label" for="sport"></label>
-			    <div>
-			      <select id="sport" class="form-control">
-			        <option value="0">Sport</option>
-			        <option value="1">Wrestling</option>
-			        <option value="2">Soccer</option>
-			        <option value="3">Gaming</option>
-			      </select>
-			    </div>
-			  </div>
-
-			  <div class="form-group">
-			    <label class="col-md-4 control-label" for="team-count"></label>
-			    <div class="col-md-4">
-			      <div class="input-group">
-			        <span class="input-group-addon">     
-			            <input type="checkbox">
-			            <span> Teams</span>     
-			        </span>
-			        <input id="team-count" name="team-count" class="form-control" type="number" value="0">
-			      </div>
-			    </div>
-			  </div>
-
-			  <div class="form-group">
-			    <label class="control-label" for="security"></label>
-			    <div>
-			      <select id="security" class="form-control">
-			        <option value="1">Public</option>
-			        <option value="2">Password-Only</option>
-			        <option value="3">Secret-URL</option>
-			      </select>
-			    </div>
-			    </div>
-
-			  <div class="form-group">
-			    <div class="col-md-8">
-			      <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
-			      <button id="submit" name="submit" class="btn btn-success">Submit</button>
-			    </div>
-			  </div>
-
-			</form>
-		</div>
+		    <button type="button" class="cancel btn btn-danger">Cancel</button>
+		    <button type="submit" class="btn btn-success">Submit</button>
+		</script>
 
 		<div id="main">
 			<h1>Competitionation</h1>
@@ -103,7 +79,7 @@
 
 			<button class="nested-btn" id="host">
 				<span>Host a Competition</span>
-				<a class="popup-btn" href="#popup"><button id="create">New Competition</button></a>
+				<button id="create">New Competition</button>
 				<button id="manage">Manage Existing</button>
 			</button>
 			<button id="join">Join a Competition</button>
@@ -115,7 +91,15 @@
 		<script src="jquery/jquery.js"></script>
 		<script src="bootstrap/dist/js/bootstrap.js"></script>
 		<script src="magnific-popup/dist/jquery.magnific-popup.js"></script>
+
+		<script src="handlebars/handlebars.js"></script>
+		<script src="underscore/underscore.js"></script>
+		<script src="backbone/backbone.js"></script>
+		<script src="thorax/thorax.js"></script>
 		
+		<script src="js/models/competition.js"></script>
+		<script src="js/views/comp-form.js"></script>
+		<script src="js/views/popup.js"></script>
 		<script src="js/app.js"></script>
 
 	</body>
