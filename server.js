@@ -18,7 +18,7 @@ app.get('/competitions', function(req,res) {
 	res.send('Competitions page');
 });
 
-// Serves either the html page or the json model based on what's requested
+// Given a name or id, serves either an html page a json model 
 app.get('/competitions/:nameOrId', function(req,res) {
 	var nameOrId = req.param('nameOrId'); //find compotition by ID or Name
 	var comp = _.findWhere(_.values(db), {id:nameOrId}) || db[nameOrId];
