@@ -20,6 +20,7 @@
     "magnific-popup": "~0.9.9",
     "thorax": "~2.1.2",
     "underscore": "~1.4.4",
-    "backbone": "~1.0.0"
+    "backbone": "~1.0.0",
+    "backbone-deep-model": "https://github.com/powmedia/backbone-deep-model.git#~0.10.4"
   }
 }
