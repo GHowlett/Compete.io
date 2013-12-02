@@ -39,11 +39,10 @@ app.get('/competitions/:nameOrId', function(req,res) {
 });
 
 // TODO: prevent posting over already existing entries
-app.post('/competitions', function(req,res) {
+app.post('/competitions/:name', function(req,res) {
 	// only works if 1+ competitions exist in the db
 	req.body.id = _.max(_.pluck(_.values(db),'id')) +1;
-	var entry = req.body.name.replace(/\W+/g, '-').toLowerCase();
-	res.json(db[entry] = req.body);
+	res.json(db[req.param('name')] = req.body);
 });
 
 var port = process.env.PORT || 3000;

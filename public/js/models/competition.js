@@ -6,5 +6,7 @@ Thorax.Models.Competition = Thorax.Model.extend({
 		system: "Single-Elimination"
 	},
 
-	urlRoot: '/competitions'
+	url: function() {return '/competitions/' + 
+		 this.get('name').replace(/\W+/g, '-').toLowerCase();
+	}
 });
