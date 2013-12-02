@@ -2,7 +2,7 @@ Thorax.Models.Competition = Thorax.Model.extend({
 	defaults: {
 		name: "Nameless",
 		sport: "N/A",
-		teams: {default:[]},
+		teams: {Participants:[]},
 		system: "Single-Elimination"
 	},
 
