@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="css/popup.css">
 		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="magnific-popup/dist/magnific-popup.css">
+		<link rel="stylesheet" href="css/conditional-display.css">
+
 	</head>
 
 	<body>
@@ -50,11 +52,9 @@
 		      <option>Gaming</option>
 		    </select>
  			
- 			<div id="teams-list" class="conditional-input">
-			    <input id="has-teams" name="hasTeams" type="checkbox">
-			    <label for="has-teams">Teams</label>  
-			    <textarea class="list" name="teams" type="text"></textarea>
-		    </div> 
+		    <input id="has-teams" class="condition" name="hasTeams" type="checkbox">
+		    <label for="has-teams">Teams</label>  
+		    <textarea class="list conditional" name="teams"></textarea> 
 		    
 		    <label for="security"></label>
 		    <select id="security" name="security" class="form-control">
