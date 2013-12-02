@@ -28,7 +28,7 @@ app.get('/competitions', function(req,res) {
 
 // Given a name or id, serves either an html page a json model 
 app.get('/competitions/:nameOrId', function(req,res) {
-	var nameOrId = req.param('nameOrId'); //find compotition by ID or Name
+	var nameOrId = req.param('nameOrId').toLowerCase(); //find compotition by ID or Name
 	var comp = _.findWhere(_.values(db), {id:parseInt(nameOrId)}) || db[nameOrId];
 
 	if (!comp) res.send(404, 'Sorry, competition "' + nameOrId + '" doesn\'t exist');
@@ -38,11 +38,12 @@ app.get('/competitions/:nameOrId', function(req,res) {
 	else res.send(406, 'Not Acceptable');
 });
 
+// TODO: prevent posting over already existing entries
 app.post('/competitions', function(req,res) {
 	// only works if 1+ competitions exist in the db
 	req.body.id = _.max(_.pluck(_.values(db),'id')) +1;
-	db[req.body.name.replace(/\W+/g, '-')] = req.body;
-	res.json(req.body);
+	var entry = req.body.name.replace(/\W+/g, '-').toLowerCase();
+	res.json(db[entry] = req.body);
 });
 
 var port = process.env.PORT || 3000;
