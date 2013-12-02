@@ -49,13 +49,12 @@
 		      <option>Soccer</option>
 		      <option>Gaming</option>
 		    </select>
-
-		    <label for="team-count"></label>
-		    <span class="input-group-addon">     
-		      <input type="checkbox">
-		      <span> Teams</span>     
-		    </span>
-		    <input id="team-count" name="team-count" class="form-control" type="number" value="0">
+ 			
+ 			<div id="teams-list" class="conditional-input">
+			    <input id="has-teams" name="hasTeams" type="checkbox">
+			    <label for="has-teams">Teams</label>  
+			    <textarea class="list" name="teams" type="text"></textarea>
+		    </div> 
 		    
 		    <label for="security"></label>
 		    <select id="security" name="security" class="form-control">

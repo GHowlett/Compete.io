@@ -14,7 +14,6 @@ var db = { // temporary in-memory database
 	test: {
 	  "name": "Test",
 	  "sport": "Soccer",
-	  "team-count": "0",
 	  "security": "Public",
 	  "teams": {},
 	  "system": "Single-Elimination",
