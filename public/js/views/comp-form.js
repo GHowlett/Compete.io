@@ -6,13 +6,13 @@ Thorax.Views.CompForm = Thorax.View.extend({
 	events: {
 		submit: function(ev) {
 			ev.preventDefault(); // is this necessary?
-			var attribs = this.parseForm(this.serialize());	
+			var attribs = this.parse(this.serialize());	
 			(new Thorax.Models.Competition(attribs)).save();
 		
 		}
 	},
 
-	parseForm: function(data) {
+	parse: function(data) {
 		var teams = data.hasTeams? data.teams.split(/[\n\r,]+/m) : [];
 		delete data.hasTeams;
 		data.teams = {};
