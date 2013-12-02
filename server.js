@@ -31,9 +31,6 @@ app.get('/competitions/:nameOrId', function(req,res) {
 	var nameOrId = req.param('nameOrId'); //find compotition by ID or Name
 	var comp = _.findWhere(_.values(db), {id:parseInt(nameOrId)}) || db[nameOrId];
 
-	console.log(req.accepted);
-	console.log(_.findWhere(req.accepted, {subtype:'html'}));
-
 	if (!comp) res.send(404, 'Sorry, competition "' + nameOrId + '" doesn\'t exist');
 	// only resolves to true if json is explicitly in the accept header (no wildcards)
 	else if (_.findWhere(req.accepted, {subtype:'json'})) res.json(comp);
