@@ -37,11 +37,13 @@
 			</nav>
 		</header>
 
-		<div id="main">
-		    <span class="input-group-addon">Participants</span>
-	    	<textarea class="form-control" id="participants" name="participants">default text</textarea>
-	    	<div id="bracket"></div>
-		</div>
+		<div id="main"><script id="comp-template">
+			{{{#collection teams id=teams tag=ul item-view=team}}}
+			    <caption>{{{name}}}</caption>
+		    	{{{collection participants tag=tbody item-view=participant>}}}
+		    {{{/collection}}}
+		    <div id="bracket"></div>
+	    </script></div>
 
 		<script src="/jquery/jquery.js"></script>
 		<script src="/bootstrap/dist/js/bootstrap.js"></script>
