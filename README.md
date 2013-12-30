@@ -1,4 +1,4 @@
-Compete.io
+ompete.io
 ==========
 
 a simple web-app for organizing / managing competitions
