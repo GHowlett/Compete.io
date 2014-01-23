@@ -6,10 +6,17 @@ Thorax.Views.CompForm = Thorax.View.extend({
 	events: {
 		submit: function(ev) {
 			ev.preventDefault(); // is this necessary?
-			var attribs = this.parse(this.serialize());	
-			(new Thorax.Models.Competition(attribs)).save();
-		
-		}
+			var attribs = this.parse(this.serialize());
+			var compMod = new Thorax.Models.Competition(attribs);
+
+			var saveReq = compMod.save(null, {
+				success: function(model,res,opt){
+					window.location.href = model.url(); },
+				error: function(model,xhr,opt){
+					/* TODO: respond to server fail */ }
+			});
+
+			if (!saveReq) {/* TODO: deal with validation fail */}		}
 	},
 
 	parse: function(data) {
