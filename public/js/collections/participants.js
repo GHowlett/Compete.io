@@ -1,4 +1,4 @@
-Thorax.Collections.Particpants = Thorax.Collection.extend({
+Thorax.Collections.Participants = Thorax.Collection.extend({
 	model: Thorax.Models.Participant
 });
 
