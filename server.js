@@ -32,10 +32,12 @@ app.get('/competitions/:nameOrId', function(req,res) {
 	var comp = _.findWhere(_.values(db), {id:parseInt(nameOrId)}) || db[nameOrId];
 
 	if (!comp) res.send(404, 'Sorry, competition "' + nameOrId + '" doesn\'t exist');
-	// only resolves to true if json is explicitly in the accept header (no wildcards)
-	else if (_.findWhere(req.accepted, {subtype:'json'})) res.json(comp);
-	else if (_.findWhere(req.accepted, {subtype:'html'})) res.render('competition.hbs', comp); 
-	else res.send(406, 'Not Acceptable');
+	// if json is explicitly in the header (no wildcards)
+	else if (_.findWhere(req.accepted, {subtype:'json'})) 
+		res.json(comp);
+	else if (_.findWhere(req.accepted, {subtype:'html'})) 
+		res.render('competition.hbs', _.clone(comp)); 
+	else res.send(406, 'No Acceptable Mime-Type Supported');
 });
 
 // TODO: prevent posting over already existing entries
